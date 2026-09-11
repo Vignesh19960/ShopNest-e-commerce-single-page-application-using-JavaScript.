@@ -1,0 +1,115 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>ShopNest</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <h1>ShopNest</h1>
+
+        <div class="cart-info">
+            🛒 Cart:
+            <span id="cartCount">0</span>
+        </div>
+
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <!-- SEARCH AND CATEGORY -->
+        <div class="controls">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products..."
+            >
+
+            <div class="category-buttons">
+
+                <button
+                    class="category-btn active"
+                    data-category="All">
+                    All
+                </button>
+
+                <button
+                    class="category-btn"
+                    data-category="Electronics">
+                    Electronics
+                </button>
+
+                <button
+                    class="category-btn"
+                    data-category="Clothing">
+                    Clothing
+                </button>
+
+                <button
+                    class="category-btn"
+                    data-category="Footwear">
+                    Footwear
+                </button>
+
+                <button
+                    class="category-btn"
+                    data-category="Books">
+                    Books
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- NO PRODUCTS MESSAGE -->
+        <p id="noProducts" class="hidden">
+            No products found.
+        </p>
+
+
+        <!-- PRODUCTS -->
+        <section id="productContainer">
+        </section>
+
+
+        <!-- CART -->
+        <section class="cart-section">
+
+            <h2>Your Cart</h2>
+
+            <div id="cartContainer">
+            </div>
+
+            <h3>
+                Total:
+                ₹<span id="cartTotal">0</span>
+            </h3>
+
+        </section>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+```
