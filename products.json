@@ -1,0 +1,115 @@
+```json
+[
+    {
+        "id": 1,
+        "name": "Wireless Headphones",
+        "category": "Electronics",
+        "price": 1499,
+        "originalPrice": 1999,
+        "rating": 4.5,
+        "imageUrl": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e"
+    },
+    {
+        "id": 2,
+        "name": "Smart Watch",
+        "category": "Electronics",
+        "price": 2499,
+        "originalPrice": 2999,
+        "rating": 4.3,
+        "imageUrl": "https://images.unsplash.com/photo-1523275335684-37898b6baf30"
+    },
+    {
+        "id": 3,
+        "name": "Laptop",
+        "category": "Electronics",
+        "price": 54999,
+        "originalPrice": 59999,
+        "rating": 4.7,
+        "imageUrl": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853"
+    },
+    {
+        "id": 4,
+        "name": "Smartphone",
+        "category": "Electronics",
+        "price": 18999,
+        "originalPrice": 21999,
+        "rating": 4.4,
+        "imageUrl": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9"
+    },
+
+    {
+        "id": 5,
+        "name": "Cotton T-Shirt",
+        "category": "Clothing",
+        "price": 599,
+        "originalPrice": 899,
+        "rating": 4.2,
+        "imageUrl": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab"
+    },
+    {
+        "id": 6,
+        "name": "Denim Jeans",
+        "category": "Clothing",
+        "price": 1299,
+        "originalPrice": 1799,
+        "rating": 4.4,
+        "imageUrl": "https://images.unsplash.com/photo-1542272604-787c3835535d"
+    },
+    {
+        "id": 7,
+        "name": "Hoodie",
+        "category": "Clothing",
+        "price": 999,
+        "originalPrice": 1499,
+        "rating": 4.3,
+        "imageUrl": "https://images.unsplash.com/photo-1556821840-3a63f95609a7"
+    },
+
+    {
+        "id": 8,
+        "name": "Running Shoes",
+        "category": "Footwear",
+        "price": 1799,
+        "originalPrice": 2499,
+        "rating": 4.5,
+        "imageUrl": "https://images.unsplash.com/photo-1542291026-7eec264c27ff"
+    },
+    {
+        "id": 9,
+        "name": "Casual Sneakers",
+        "category": "Footwear",
+        "price": 1599,
+        "originalPrice": 2199,
+        "rating": 4.2,
+        "imageUrl": "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77"
+    },
+    {
+        "id": 10,
+        "name": "Sports Shoes",
+        "category": "Footwear",
+        "price": 1999,
+        "originalPrice": 2799,
+        "rating": 4.6,
+        "imageUrl": "https://images.unsplash.com/photo-1552346154-21d32810aba3"
+    },
+
+    {
+        "id": 11,
+        "name": "JavaScript Book",
+        "category": "Books",
+        "price": 699,
+        "originalPrice": 999,
+        "rating": 4.7,
+        "imageUrl": "https://images.unsplash.com/photo-1532012197267-da84d127e765"
+    },
+    {
+        "id": 12,
+        "name": "Web Development Book",
+        "category": "Books",
+        "price": 799,
+        "originalPrice": 1099,
+        "rating": 4.5,
+        "imageUrl": "https://images.unsplash.com/photo-1544947950-fa07a98d237f"
+    }
+]
+```
