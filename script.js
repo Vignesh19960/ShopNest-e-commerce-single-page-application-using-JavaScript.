@@ -1,10 +1,4 @@
-```javascript
-// ===============================
-// ShopNest - script.js
-// ===============================
-
-
-// ---------- Global Variables ----------
+// ---------- Variables ----------
 
 let products = [];
 
@@ -37,9 +31,7 @@ const categoryButtons =
     document.querySelectorAll(".category-btn");
 
 
-// ===============================
-// 1. FETCH PRODUCTS
-// ===============================
+// ---------- Fetch Products ----------
 
 async function loadProducts() {
 
@@ -47,6 +39,10 @@ async function loadProducts() {
 
         const response =
             await fetch("products.json");
+
+        if (!response.ok) {
+            throw new Error("Failed to load products");
+        }
 
         products =
             await response.json();
@@ -57,26 +53,22 @@ async function loadProducts() {
 
     } catch (error) {
 
-        console.error(
-            "Failed to load products:",
-            error
-        );
+        productContainer.innerHTML =
+            "<p>Unable to load products.</p>";
 
     }
 
 }
 
 
-// ===============================
-// 2. RENDER PRODUCTS
-// ===============================
+// ---------- Render Products ----------
 
 function renderProducts() {
 
     productContainer.innerHTML = "";
 
     const searchText =
-        searchInput.value.toLowerCase();
+        searchInput.value.toLowerCase().trim();
 
 
     const filteredProducts =
@@ -124,8 +116,7 @@ function renderProducts() {
 
             <img
                 src="${product.imageUrl}"
-                alt="${product.name}"
-            >
+                alt="${product.name}">
 
             <h3>
                 ${product.name}
@@ -143,19 +134,18 @@ function renderProducts() {
             <p>
 
                 <strong>
-                    ₹${product.price}
+                    Rs.${product.price}
                 </strong>
 
                 <del>
-                    ₹${product.originalPrice}
+                    Rs.${product.originalPrice}
                 </del>
 
             </p>
 
             <button
                 class="add-cart-btn"
-                data-id="${product.id}"
-            >
+                data-id="${product.id}">
                 Add to Cart
             </button>
 
@@ -169,80 +159,63 @@ function renderProducts() {
 }
 
 
-// ===============================
-// 3. LIVE SEARCH
-// ===============================
+// ---------- Live Search ----------
 
-searchInput.addEventListener(
-    "input",
-    () => {
+searchInput.addEventListener("input", () => {
 
-        renderProducts();
-
-    }
-);
-
-
-// ===============================
-// 4. CATEGORY FILTER
-// ===============================
-
-categoryButtons.forEach(button => {
-
-    button.addEventListener(
-        "click",
-        () => {
-
-            selectedCategory =
-                button.dataset.category;
-
-
-            categoryButtons.forEach(btn => {
-
-                btn.classList.remove("active");
-
-            });
-
-
-            button.classList.add("active");
-
-
-            renderProducts();
-
-        }
-    );
+    renderProducts();
 
 });
 
 
-// ===============================
-// 5. ADD TO CART
-// ===============================
+// ---------- Category Filter ----------
 
-productContainer.addEventListener(
-    "click",
-    event => {
+categoryButtons.forEach(button => {
 
-        if (
-            !event.target.classList
-                .contains("add-cart-btn")
-        ) {
+    button.addEventListener("click", () => {
 
-            return;
-
-        }
+        selectedCategory =
+            button.dataset.category;
 
 
-        const productId =
-            Number(
-                event.target.dataset.id
-            );
+        categoryButtons.forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
 
 
-        addToCart(productId);
+        button.classList.add("active");
+
+
+        renderProducts();
+
+    });
+
+});
+
+
+// ---------- Add To Cart ----------
+
+productContainer.addEventListener("click", event => {
+
+    if (
+        !event.target.classList
+            .contains("add-cart-btn")
+    ) {
+
+        return;
 
     }
-);
+
+
+    const productId =
+        Number(event.target.dataset.id);
+
+
+    addToCart(productId);
+
+});
 
 
 function addToCart(productId) {
@@ -277,9 +250,7 @@ function addToCart(productId) {
 }
 
 
-// ===============================
-// 6. RENDER CART
-// ===============================
+// ---------- Render Cart ----------
 
 function renderCart() {
 
@@ -294,8 +265,7 @@ function renderCart() {
 
         const product =
             products.find(
-                product =>
-                    product.id === cartItem.id
+                product => product.id === cartItem.id
             );
 
 
@@ -307,15 +277,12 @@ function renderCart() {
 
 
         const itemTotal =
-            product.price *
-            cartItem.quantity;
+            product.price * cartItem.quantity;
 
 
         total += itemTotal;
 
-
-        itemCount +=
-            cartItem.quantity;
+        itemCount += cartItem.quantity;
 
 
         const cartElement =
@@ -334,13 +301,12 @@ function renderCart() {
 
             <p>
                 Price:
-                ₹${product.price}
+                Rs.${product.price}
             </p>
 
             <button
                 class="decrease-btn"
-                data-id="${product.id}"
-            >
+                data-id="${product.id}">
                 -
             </button>
 
@@ -350,35 +316,31 @@ function renderCart() {
 
             <button
                 class="increase-btn"
-                data-id="${product.id}"
-            >
+                data-id="${product.id}">
                 +
             </button>
 
             <button
                 class="remove-btn"
-                data-id="${product.id}"
-            >
+                data-id="${product.id}">
                 Remove
             </button>
 
             <p>
                 Item Total:
-                ₹${itemTotal}
+                Rs.${itemTotal}
             </p>
 
         `;
 
 
-        cartContainer.appendChild(
-            cartElement
-        );
+        cartContainer.appendChild(cartElement);
 
     });
 
 
     cartTotal.textContent =
-        total;
+        total.toFixed(2);
 
 
     cartCount.textContent =
@@ -387,69 +349,49 @@ function renderCart() {
 }
 
 
-// ===============================
-// 7. PLUS / MINUS / REMOVE
-// ===============================
+// ---------- Plus / Minus / Remove ----------
 
-cartContainer.addEventListener(
-    "click",
-    event => {
+cartContainer.addEventListener("click", event => {
 
-        const productId =
-            Number(
-                event.target.dataset.id
-            );
+    const productId =
+        Number(event.target.dataset.id);
 
 
-        if (
-            event.target.classList
-                .contains("increase-btn")
-        ) {
+    if (
+        event.target.classList
+            .contains("increase-btn")
+    ) {
 
-            changeQuantity(
-                productId,
-                1
-            );
-
-        }
-
-
-        if (
-            event.target.classList
-                .contains("decrease-btn")
-        ) {
-
-            changeQuantity(
-                productId,
-                -1
-            );
-
-        }
-
-
-        if (
-            event.target.classList
-                .contains("remove-btn")
-        ) {
-
-            removeFromCart(
-                productId
-            );
-
-        }
+        changeQuantity(productId, 1);
 
     }
-);
 
 
-// ===============================
-// 8. CHANGE QUANTITY
-// ===============================
+    if (
+        event.target.classList
+            .contains("decrease-btn")
+    ) {
 
-function changeQuantity(
-    productId,
-    change
-) {
+        changeQuantity(productId, -1);
+
+    }
+
+
+    if (
+        event.target.classList
+            .contains("remove-btn")
+    ) {
+
+        removeFromCart(productId);
+
+    }
+
+});
+
+
+// ---------- Change Quantity ----------
+
+function changeQuantity(productId, change) {
 
     const item =
         cart.find(
@@ -483,9 +425,7 @@ function changeQuantity(
 }
 
 
-// ===============================
-// 9. REMOVE FROM CART
-// ===============================
+// ---------- Remove From Cart ----------
 
 function removeFromCart(productId) {
 
@@ -503,9 +443,7 @@ function removeFromCart(productId) {
 }
 
 
-// ===============================
-// 10. SAVE CART
-// ===============================
+// ---------- Save Cart ----------
 
 function saveCart() {
 
@@ -517,9 +455,7 @@ function saveCart() {
 }
 
 
-// ===============================
-// 11. LOAD CART
-// ===============================
+// ---------- Load Cart ----------
 
 function loadCart() {
 
@@ -531,8 +467,16 @@ function loadCart() {
 
     if (savedCart) {
 
-        cart =
-            JSON.parse(savedCart);
+        try {
+
+            cart =
+                JSON.parse(savedCart);
+
+        } catch (error) {
+
+            cart = [];
+
+        }
 
     }
 
@@ -542,9 +486,6 @@ function loadCart() {
 }
 
 
-// ===============================
-// 12. START APPLICATION
-// ===============================
+// ---------- Start Application ----------
 
 loadProducts();
-```
