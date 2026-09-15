@@ -1,8 +1,3 @@
-```css
-/* =========================
-   GENERAL
-========================= */
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -16,9 +11,6 @@ body {
 }
 
 
-/* =========================
-   HEADER
-========================= */
 
 header {
     background-color: #222;
@@ -40,9 +32,7 @@ header h1 {
 }
 
 
-/* =========================
-   MAIN
-========================= */
+
 
 main {
     width: 90%;
@@ -52,9 +42,7 @@ main {
 }
 
 
-/* =========================
-   CONTROLS
-========================= */
+
 
 .controls {
     background-color: white;
@@ -71,9 +59,6 @@ main {
 }
 
 
-/* =========================
-   SEARCH
-========================= */
 
 #searchInput {
     width: 100%;
@@ -95,10 +80,6 @@ main {
     border-color: #333;
 }
 
-
-/* =========================
-   CATEGORY BUTTONS
-========================= */
 
 .category-buttons {
     display: flex;
@@ -133,9 +114,6 @@ main {
 }
 
 
-/* =========================
-   PRODUCT GRID
-========================= */
 
 #productContainer {
     display: grid;
@@ -146,10 +124,6 @@ main {
     gap: 20px;
 }
 
-
-/* =========================
-   PRODUCT CARD
-========================= */
 
 .product-card {
     background-color: white;
@@ -170,10 +144,6 @@ main {
 }
 
 
-/* =========================
-   PRODUCT IMAGE
-========================= */
-
 .product-card img {
     width: 100%;
 
@@ -187,9 +157,6 @@ main {
 }
 
 
-/* =========================
-   PRODUCT NAME
-========================= */
 
 .product-card h3 {
     font-size: 18px;
@@ -198,9 +165,6 @@ main {
 }
 
 
-/* =========================
-   PRODUCT DETAILS
-========================= */
 
 .product-card p {
     margin-bottom: 8px;
@@ -215,9 +179,7 @@ main {
 }
 
 
-/* =========================
-   ADD TO CART
-========================= */
+
 
 .add-cart-btn {
     width: 100%;
@@ -244,9 +206,6 @@ main {
 }
 
 
-/* =========================
-   NO PRODUCTS
-========================= */
 
 #noProducts {
     text-align: center;
@@ -259,18 +218,12 @@ main {
 }
 
 
-/* =========================
-   HIDDEN
-========================= */
 
 .hidden {
     display: none;
 }
 
 
-/* =========================
-   CART SECTION
-========================= */
 
 .cart-section {
     background-color: white;
@@ -291,9 +244,7 @@ main {
 }
 
 
-/* =========================
-   CART ITEM
-========================= */
+
 
 .cart-item {
     border-bottom: 1px solid #ddd;
@@ -312,9 +263,7 @@ main {
 }
 
 
-/* =========================
-   CART BUTTONS
-========================= */
+
 
 .cart-item button {
     padding: 7px 12px;
@@ -343,9 +292,6 @@ main {
 }
 
 
-/* =========================
-   TOTAL
-========================= */
 
 .cart-section h3:last-child {
     text-align: right;
@@ -356,9 +302,7 @@ main {
 }
 
 
-/* =========================
-   RESPONSIVE
-========================= */
+
 
 @media (max-width: 900px) {
 
@@ -399,4 +343,4 @@ main {
     }
 
 }
-```
+
